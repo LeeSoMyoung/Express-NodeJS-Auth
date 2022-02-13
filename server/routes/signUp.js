@@ -9,7 +9,7 @@ const router = express.Router();
 const uuid = require('uuid');
 const bcrypt = require('bcrypt');
 
-const registerMiddleware = require('./middlewares/register.js');
+const registerMiddleware = require('./middlewares/users.js');
 
 router.post('/', registerMiddleware.validRegister, async (req, res) => {
     const { id, username } = req.body;

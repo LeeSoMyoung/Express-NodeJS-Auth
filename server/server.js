@@ -7,13 +7,15 @@ const app = express();
 const path = require('path');
 
 const signUpRouter = require('./routes/signUp.js');
+const logInRouter = require('./routes/logIn.js');
 
 const PORT = process.env.PORT || 8081;
 
-app.use('/src',express.static(path.resolve(__dirname, '..', 'src')));
+app.use('/src', express.static(path.resolve(__dirname, '..', 'src')));
 app.use(express.json());
 
-app.use('/sign-up',signUpRouter);
+app.use('/sign-up', signUpRouter);
+app.use('/login', logInRouter);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'src', 'views', 'index.html'));
