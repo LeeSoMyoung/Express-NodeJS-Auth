@@ -8,6 +8,8 @@ NodeJS, Express, Vanilla JS로 구현한 Authentication
 |Back-end|Node.js Express MySQL|
 
 # Back-end
+<a href="https://ordinary-bait-736.notion.site/Express-Node-JS-Auth-API-7c59e5bc219b4e889a4c1726faf7d8ab">API 명세서</a>
+
 ## (1) 회원가입 요청
 ![ezgif-3-50b39cbd17](https://user-images.githubusercontent.com/47571973/153737263-d43749b5-b8ff-4eae-a7c4-d188ea367468.gif)
 
