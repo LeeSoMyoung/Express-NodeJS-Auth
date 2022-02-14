@@ -19,16 +19,18 @@ export default class extends AbstractView{
                 </form>
                 <div class="div__btns">
                     <button id="btn__signIn">로그인</button>
+                    <button id="btn__signIn">깃허브로 로그인</button>
+                    <button id="btn__signIn">구글로 로그인</button>
                     <button id="btn__signUp">회원가입</button>
-                    <button id="btn__naver__signUp">네이버로 회원가입</button>
-                    <button id="btn__github__signUp">깃허브로 회원가입</button>
-                    <button id="btn__google__signUp">구글로 회원가입</button>
                 </div>
             </div>
         `;
     }
 
     attachEvent(){
+        const user_id = document.querySelector('#input__id');
+        const user_pw = document.querySelector('#input__pw');
 
+        
     }
 }
