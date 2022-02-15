@@ -1,6 +1,7 @@
 'use strict';
 
 import AbstractView from './AbstactView.js';
+import { onLogInBtnClick, onSignUpBtnClick } from '../../controllers/LogInController.js';
 
 export default class extends AbstractView {
     constructor() {
@@ -34,6 +35,17 @@ export default class extends AbstractView {
         const user_pw = document.querySelector('#input__pw');
 
         const form__signIn = document.querySelector('form');
+        
+        const btn__signIn = document.querySelector('#btn__signIn');
+        const btn__signUp = document.querySelector('#btn__signUp');
 
+        form__signIn.addEventListener('submit', (event)=>{
+            onLogInBtnClick(event, user_id.value, user_pw.value)
+        });
+        btn__signIn.addEventListener('click', (event)=>{
+            onLogInBtnClick(event, user_id.value, user_pw.value)
+        });
+
+        btn__signUp.addEventListener('click', onSignUpBtnClick);
     }
 }

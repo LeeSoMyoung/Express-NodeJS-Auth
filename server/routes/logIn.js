@@ -11,7 +11,7 @@ const db = require('../../src/lib/db.js');
 
 const userMiddleware = require('./middlewares/users.js');
 
-router.post('/', userMiddleware.isLoggedIn, (req, res) => {
+router.post('/', (req, res) => {
 
     const id = req.body.id;
 

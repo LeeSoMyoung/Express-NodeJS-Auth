@@ -8,6 +8,7 @@ const path = require('path');
 
 const signUpRouter = require('./routes/signUp.js');
 const logInRouter = require('./routes/logIn.js');
+const mainRouter = require('./routes/main.js');
 
 const PORT = process.env.PORT || 8081;
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/sign-up', signUpRouter);
 app.use('/login', logInRouter);
+app.use('/', mainRouter);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'src', 'views', 'index.html'));

@@ -1,6 +1,7 @@
 'use strict';
 
 import AbstactView from "./AbstactView.js";
+import { onSignUpSubmit } from "../../controllers/SignUpController.js";
 
 export default class extends AbstactView{
     constructor(){
@@ -29,6 +30,15 @@ export default class extends AbstactView{
     }
 
     attachEvent(){
+        const signUp = document.querySelector('#btn__signUp');
+        
+        const username = document.querySelector('#input__sign-up__username');
+        const id = document.querySelector('#input__sign-up__id');
+        const pw = document.querySelector('#input__sign-up__pw');
+        const pw_repeat = document.querySelector('#input__sign-up__pw-repeat');
 
+        signUp.addEventListener('click',(event)=>{
+            onSignUpSubmit(event, id.value, pw.value, pw_repeat.value, username.value);
+        });
     }
 }

@@ -43,12 +43,16 @@ module.exports = {
                 const isValid = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
                 req.user = isValid;
             }
+            else {
+                // accessToken이 존재하지 않는다면 -> 로그인 우선
+                res.redirect('http://localhost:5000/login');
+            }
             next();
         }
         catch (err) {
             throw err;
             return res.status(400).send({
-                message: "유효하지 않은 세션입니다."
+                message: "유효하지 않은 토큰입니다."
             });
         };
     }
