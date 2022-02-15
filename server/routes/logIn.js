@@ -9,8 +9,6 @@ const bcrypt = require('bcrypt');
 
 const db = require('../../src/lib/db.js');
 
-const userMiddleware = require('./middlewares/users.js');
-
 router.post('/', (req, res) => {
 
     const id = req.body.id;
@@ -33,33 +31,35 @@ router.post('/', (req, res) => {
                 });
             }
             else {
-                bcrypt.compare(req.body.pw, dbRes[0]['pw'],(bErr, bRes)=>{
-                    if(bErr){
+                bcrypt.compare(req.body.pw, dbRes[0]['pw'], (bErr, bRes) => {
+                    if (bErr) {
                         // 비밀번호 확인 과정에서 bcrypt에서 에러가 났을 시
                         throw bErr;
                         return res.status(500).send({
-                            message:bErr
+                            message: bErr
                         });
                     }
-                    if(bRes){
+                    if (bRes) {
                         // 비밀번호가 일치하면
                         const currentUser = {
                             uid: dbRes[0]['uid'],
+                            id: dbRes[0]['id'],
                             username: dbRes[0]['username']
                         };
 
-                        const accessToken = jwt.sign(currentUser,process.env.ACCESS_TOKEN_SECRET, {expiresIn:"7d"});
+                        const accessToken = jwt.sign(currentUser, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "7d" });
 
+                        res.cookie('accessToken', accessToken); // accessToken을 쿠키로 전달하여 브라우저에 저장한다.
 
                         return res.status(200).send({
-                            message:"로그인 성공",
+                            message: "로그인 성공",
                             accessToken
                         });
                     }
-                    else{
+                    else {
                         // 비밀번호가 일치하지 않으면
                         return res.status(403).send({
-                            message:"아이디나 비밀번호가 일치하지 않습니다."
+                            message: "아이디나 비밀번호가 일치하지 않습니다."
                         });
                     }
                 });

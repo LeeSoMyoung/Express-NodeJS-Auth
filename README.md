@@ -15,3 +15,14 @@ NodeJS, Express, Vanilla JS로 구현한 Authentication
 
 ## (2) 로그인 요청
 ![ezgif-3-2977db920c](https://user-images.githubusercontent.com/47571973/153788734-36775dbc-3e21-4547-a60f-83f9b9e02a22.gif)
+
+# Front-end
+
+## (1) 로그인 요청
+### (1-1) 아이디가 잘못되었을 때
+
+### (1-2) 비밀번호가 잘못되었을 때
+
+### (1-3) 로그인 성공
+
+## (2) 회원가입 요청

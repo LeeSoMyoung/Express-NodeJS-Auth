@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -36,24 +38,26 @@ module.exports = {
     },
 
     isLoggedIn: (req, res, next) => {
-        try {
-            const authHeader = req.headers.authorization;
-            const accessToken = authHeader && authHeader.split(' ')[1];
-            if (accessToken) {
-                const isValid = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
-                req.user = isValid;
-            }
-            else {
-                // accessToken이 존재하지 않는다면 -> 로그인 우선
-                res.redirect('http://localhost:5000/login');
-            }
-            next();
+        const accessToken = req.cookies['accessToken']; // 쿠키에 토큰이 있는지 체크
+
+        if(!accessToken){
+            res.redirect('http://localhost:5000/login');
         }
-        catch (err) {
-            throw err;
-            return res.status(400).send({
-                message: "유효하지 않은 토큰입니다."
-            });
-        };
+        else{
+            // 토큰이 존재할 때
+            try{
+                const isValid = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+                req.username = isValid.username;
+                req.id = isValid.id;
+                req.uid = isValid.uid;
+                next();
+            }
+            catch(err){
+                throw err;
+                return res.send(403).send({
+                    message:"아이디나 비밀번호가 일치하지 않습니다."
+                });
+            }
+        }
     }
 };

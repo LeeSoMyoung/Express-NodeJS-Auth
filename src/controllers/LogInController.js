@@ -13,11 +13,11 @@ function onLogInBtnClick(event, id, pw) {
         body: JSON.stringify({
             "id": id,
             "pw": pw
-        })
+        }),
+        credentials: 'include'
     })
         .then((res) => {
-            console.log(res.json());
-            navigateTo(location.origin);
+            navigateTo('http://localhost:5000');
         })
         .catch((err) => {
             throw err;

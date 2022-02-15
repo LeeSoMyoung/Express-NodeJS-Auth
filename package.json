@@ -29,6 +29,7 @@
     "uuid": "^8.3.2"
   },
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.26.0",
+    "cookie-parser": "^1.4.6"
   }
 }

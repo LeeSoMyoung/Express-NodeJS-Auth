@@ -15,7 +15,8 @@ function onSignUpSubmit(event, id, pw, pw_repeat, username) {
         }),
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        credentials: 'include'
     })
         .then((res) => {
             console.log(res.json());
