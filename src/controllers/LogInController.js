@@ -17,7 +17,9 @@ function onLogInBtnClick(event, id, pw) {
         credentials: 'include'
     })
         .then((res) => {
-            navigateTo('http://localhost:5000');
+            if (res.ok && res.status === 200) {
+                navigateTo('http://localhost:5000');
+            }
         })
         .catch((err) => {
             throw err;
