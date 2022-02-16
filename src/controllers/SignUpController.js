@@ -19,8 +19,17 @@ function onSignUpSubmit(event, id, pw, pw_repeat, username) {
         credentials: 'include'
     })
         .then((res) => {
-            console.log(res.json());
-            navigateTo(location.origin+'login');
+            if(res.ok && res.status ===201){
+                // 회원가입에 성공했을 시
+                navigateTo(location.origin);
+            }
+            else{
+                // 회원가입 과정에서 오류가 존재할 시
+                res.json().then((errMsg)=>{
+                    alert(errMsg.message);
+                    throw new Error(errMsg);
+                });
+            }
         })
         .catch((err) => {
             throw err;

@@ -1,14 +1,14 @@
 'use strict';
 
 import AbstactView from "./AbstactView.js";
-import getUserName from '../../controllers/MainController.js';
+import { getUserName, onSignOutClick } from '../../controllers/MainController.js';
 
-export default class extends AbstactView{
-    constructor(){
+export default class extends AbstactView {
+    constructor() {
         super();
     }
 
-    async getHtml(){
+    async getHtml() {
         return `
         <div class ="user-data">
             <h1 id="greeting"></h1>
@@ -20,9 +20,10 @@ export default class extends AbstactView{
         `;
     }
 
-    async attachEvent(){
+    async attachEvent() {
         const h1__greeting = document.querySelector('#greeting');
         const h3__showID = document.querySelector('#h3__showID');
+        const signOut = document.querySelector('#logout');
 
         let userData = await getUserName();
 
@@ -30,6 +31,8 @@ export default class extends AbstactView{
 
         const username = data.username;
         const id = data.id;
+
+        signOut.addEventListener('click', onSignOutClick);
 
         this.setTitle(`${username}님의 메인화면`);
 

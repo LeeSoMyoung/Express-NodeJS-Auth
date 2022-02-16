@@ -20,6 +20,12 @@ function onLogInBtnClick(event, id, pw) {
             if (res.ok && res.status === 200) {
                 navigateTo('http://localhost:5000');
             }
+            else{
+                return res.json().then((message)=>{
+                    alert(message.message);
+                    throw new Error(message);
+                })
+            }
         })
         .catch((err) => {
             throw err;
