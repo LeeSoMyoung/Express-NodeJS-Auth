@@ -6,6 +6,7 @@ import { getUserName, onSignOutClick } from '../../controllers/MainController.js
 export default class extends AbstactView {
     constructor() {
         super();
+        this.setTitle('로그인 성공 후 메인 화면');
     }
 
     async getHtml() {
@@ -34,9 +35,7 @@ export default class extends AbstactView {
 
         signOut.addEventListener('click', onSignOutClick);
 
-        this.setTitle(`${username}님의 메인화면`);
-
-        h1__greeting.innerHTML = `${username}님, 반갑습니다.`;
-        h3__showID.innerHTML = `${username}의 ID는 ${id}입니다.`;
+        h1__greeting.innerText = `${username}님, 반갑습니다.`;
+        h3__showID.innerText = `${username}의 ID는 ${id}입니다.`;
     }
 }

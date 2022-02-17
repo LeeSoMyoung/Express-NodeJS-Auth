@@ -17,11 +17,11 @@ router.get('/user-info', userMiddleware.isLoggedIn, (req,res) => {
     });
 });
 
-router.get('/log-out',(req,res)=>{
+router.get('/log-out',userMiddleware.isLoggedIn, (req,res)=>{
     res.clearCookie('accessToken').status(200).send({
         message:"로그아웃 되었습니다."
     });
-    res.redirect('http://localhost:5000');
+    res.redirect('http://localhost:5000/login');
 });
 
 module.exports = router;

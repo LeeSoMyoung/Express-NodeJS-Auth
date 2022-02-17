@@ -21,7 +21,7 @@ function onSignUpSubmit(event, id, pw, pw_repeat, username) {
         .then((res) => {
             if(res.ok && res.status ===201){
                 // 회원가입에 성공했을 시
-                navigateTo(location.origin);
+                navigateTo(location.origin+'/login');
             }
             else{
                 // 회원가입 과정에서 오류가 존재할 시

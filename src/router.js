@@ -17,19 +17,19 @@ const router = async () => {
         { path: '/sign-up', view: SignUpView }
     ];
 
-    const pathLists = routes.map((route)=>{
+    const pathLists = routes.map((route) => {
         return {
             route: route,
-            isMatch: location.pathname ===route.path
+            isMatch: location.pathname === route.path
         }
     });
 
-    let matchedPath = pathLists.find((path)=>path.isMatch);
+    let matchedPath = pathLists.find((path) => path.isMatch);
 
-    if(!matchedPath){
-        matchedPath={
-            route:{
-                path:location.pathname,
+    if (!matchedPath) {
+        matchedPath = {
+            route: {
+                path: location.pathname,
                 view: NotFoundView
             },
             isMatch: true
@@ -42,8 +42,12 @@ const router = async () => {
 
     app.innerHTML = await view.getHtml();
 
-    view.attachEvent();
-
+    if (location.pathname === '/') {
+        await view.attachEvent();
+    }
+    else {
+        view.attachEvent();
+    }
 };
 
 export { router, navigateTo };
