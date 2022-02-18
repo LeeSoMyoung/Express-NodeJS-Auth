@@ -70,4 +70,8 @@ router.post('/', registerMiddleware.validRegister, async (req, res) => {
         });
 });
 
+router.post('/google',(req,res)=>{
+    
+});
+
 module.exports = router;

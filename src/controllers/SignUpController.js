@@ -37,4 +37,12 @@ function onSignUpSubmit(event, id, pw, pw_repeat, username) {
         });
 }
 
-export { onSignUpSubmit };
+function onGithubSignUp(event){
+
+}
+
+function onGoogleSignUp(event){
+    
+}
+
+export { onSignUpSubmit, onGoogleSignUp, onGithubSignUp };

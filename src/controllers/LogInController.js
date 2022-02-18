@@ -20,8 +20,8 @@ function onLogInBtnClick(event, id, pw) {
             if (res.ok && res.status === 200) {
                 navigateTo('http://localhost:5000');
             }
-            else{
-                return res.json().then((message)=>{
+            else {
+                return res.json().then((message) => {
                     alert(message.message);
                     throw new Error(message);
                 })
@@ -39,4 +39,31 @@ function onSignUpBtnClick(event) {
     navigateTo(location.origin + '/sign-up');
 }
 
-export { onLogInBtnClick, onSignUpBtnClick };
+function onGithubLogInClick(event) {
+    event.preventDefault();
+
+    fetch('http://localhost:5000/login/github')
+    .then((res)=>{
+        console.log(res.json());
+    })
+    .catch((err)=>{
+        throw err;
+        console.log(err);
+    });
+    
+}
+
+function onGoogleLogInClick(event){
+    event.preventDefault();
+    fetch('http://localhost:5000/login/google',{
+        method:"POST"
+    })
+    .then((res)=>{
+        console.log(res);
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
+}
+
+export { onLogInBtnClick, onSignUpBtnClick, onGithubLogInClick, onGoogleLogInClick };

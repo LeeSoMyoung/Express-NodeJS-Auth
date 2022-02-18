@@ -1,7 +1,7 @@
 'use strict';
 
 import AbstractView from './AbstactView.js';
-import { onLogInBtnClick, onSignUpBtnClick } from '../../controllers/LogInController.js';
+import { onLogInBtnClick, onSignUpBtnClick, onGithubLogInClick, onGoogleLogInClick } from '../../controllers/LogInController.js';
 
 export default class extends AbstractView {
     constructor() {
@@ -38,7 +38,10 @@ export default class extends AbstractView {
         
         const btn__signIn = document.querySelector('#btn__signIn');
         const btn__signUp = document.querySelector('#btn__signUp');
+        const btn__GithubSignIn = document.querySelector('#btn__GithubSignIn');
+        const btn__GoogleSignIn = document.querySelector('#btn__GoogleSignIn');
 
+        //// 일반 로그인 폼 제출 관련 이벤트 리스너
         form__signIn.addEventListener('submit', (event)=>{
             onLogInBtnClick(event, user_id.value, user_pw.value)
         });
@@ -46,6 +49,11 @@ export default class extends AbstractView {
             onLogInBtnClick(event, user_id.value, user_pw.value)
         });
 
+        /////// 회원가입 및 oAuth 로그인 관련 이벤트 리스너
+
         btn__signUp.addEventListener('click', onSignUpBtnClick);
+        btn__GithubSignIn.addEventListener('click', onGithubLogInClick);
+        btn__GoogleSignIn.addEventListener('click', onGoogleLogInClick);
+
     }
 }

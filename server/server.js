@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser');
 const signUpRouter = require('./routes/signUp.js');
 const logInRouter = require('./routes/logIn.js');
 const mainRouter = require('./routes/main.js');
+const googleLogInRouter = require('./routes/googleLogIn.js');
+const githubLogInRouter = require('./routes/githubLogIn.js');
 
 const PORT = process.env.PORT || 8081;
 
@@ -20,6 +22,8 @@ app.use(cookieParser());
 app.use('/sign-up', signUpRouter);
 app.use('/login', logInRouter);
 app.use('/', mainRouter);
+app.use('/login', googleLogInRouter);
+app.use('/login', githubLogInRouter);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'src', 'views', 'index.html'));

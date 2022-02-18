@@ -3,10 +3,13 @@
 require('dotenv').config();
 
 const express = require('express');
-const router = require('router');
+const router = express.Router();
 
-router.get('/callback',(req, res)=>{
+const db = require('../../src/lib/db.js');
 
+router.get('/github',(req,res)=>{
+    const githubAuthURL = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_REDIRECT_URI}`
+    res.redirect(githubAuthURL);
 });
 
 module.exports=router;

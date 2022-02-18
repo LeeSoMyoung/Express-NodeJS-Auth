@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
 
                         const accessToken = jwt.sign(currentUser, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "7d" });
 
-                        res.cookie('accessToken', accessToken); // accessToken을 쿠키로 전달하여 브라우저에 저장한다.
+                        res.cookie(process.env.COOKIE_NAME, accessToken); // accessToken을 쿠키로 전달하여 브라우저에 저장한다.
 
                         return res.status(200).send({
                             message: "로그인 성공",
@@ -65,6 +65,10 @@ router.post('/', (req, res) => {
                 });
             }
         });
+});
+
+router.get('/github-login', (req, res)=>{
+    res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`);
 });
 
 module.exports = router;
