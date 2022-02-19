@@ -1,6 +1,7 @@
 # Express-NodeJS-Auth-with-JWT
 NodeJS, Express, Vanilla JS로 구현한 Authentication **(+JWT)**
-**Passport.js나 googleapis 패키지는 사용하지 않았다.**
+
+Passport.js나 googleapis 패키지는 사용하지 않았다.
 
 ## 홈페이지 구동
 ### (1) 일반 회원가입 및 로그인
