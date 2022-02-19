@@ -44,16 +44,7 @@ function onGithubLogInClick(event) {
 }
 
 function onGoogleLogInClick(event){
-    event.preventDefault();
-    fetch('http://localhost:5000/login/google',{
-        method:"POST"
-    })
-    .then((res)=>{
-        console.log(res);
-    })
-    .catch((err)=>{
-        console.log(err);
-    });
+    location.href=location.origin+'/login/google';
 }
 
 export { onLogInBtnClick, onSignUpBtnClick, onGithubLogInClick, onGoogleLogInClick };

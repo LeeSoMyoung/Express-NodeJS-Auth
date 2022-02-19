@@ -3,7 +3,7 @@
 const fetch = require('node-fetch');
 
 async function getAccessToken(code){
-    const result = fetch('https://github.com/login/oauth/access_token',{
+    await fetch('https://github.com/login/oauth/access_token',{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

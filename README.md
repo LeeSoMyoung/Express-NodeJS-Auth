@@ -1,9 +1,15 @@
-# Express-NodeJS-Auth
-NodeJS, Express, Vanilla JS로 구현한 Authentication
+# Express-NodeJS-Auth-with-JWT
+NodeJS, Express, Vanilla JS로 구현한 Authentication **(+JWT)**
+**Passport.js나 googleapis 패키지는 사용하지 않았다.**
 
 ## 홈페이지 구동
 ### (1) 일반 회원가입 및 로그인
 ![ezgif-1-cc7f99b2a4](https://user-images.githubusercontent.com/47571973/154415547-19cbd486-65bb-45b4-8316-344a9df0c8ec.gif)
+
+### (2) 깃허브 로그인
+
+### (3) 구글 로그인
+
 
 # 기술 스택
 |파트|기술스택|

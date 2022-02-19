@@ -7,12 +7,9 @@ const router = express.Router();
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
 
-const res = require('express/lib/response');
-
 // End point 2개
 // /login/github
 // /login/github/callback
-
 
 const getAccessToken = async (code) => {
     const data = {
@@ -66,8 +63,6 @@ router.get('/github/callback', async (req, res) => {
     const accessToken = await getAccessToken(code);
     const githubUserData = await getGithubUser(accessToken);
 
-    console.log('githubUserData',githubUserData);
-
     if(!githubUserData){
         return res.status(500).send({
             message: "깃허브 유저 데이터를 불러오는데 실패하였습니다."
@@ -86,6 +81,8 @@ router.get('/github/callback', async (req, res) => {
 
         res.cookie(process.env.COOKIE_NAME, token);
         
+        res.redirect(`http://localhost:${process.env.PORT}`);
+
         return res.status(200).send({
             message: "로그인 성공",
             accessToken: token
