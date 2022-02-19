@@ -67,8 +67,4 @@ router.post('/', (req, res) => {
         });
 });
 
-router.get('/github-login', (req, res)=>{
-    res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`);
-});
-
 module.exports = router;

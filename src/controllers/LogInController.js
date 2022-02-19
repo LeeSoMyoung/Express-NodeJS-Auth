@@ -40,17 +40,7 @@ function onSignUpBtnClick(event) {
 }
 
 function onGithubLogInClick(event) {
-    event.preventDefault();
-
-    fetch('http://localhost:5000/login/github')
-    .then((res)=>{
-        console.log(res.json());
-    })
-    .catch((err)=>{
-        throw err;
-        console.log(err);
-    });
-    
+    location.href=location.origin+'/login/github';
 }
 
 function onGoogleLogInClick(event){

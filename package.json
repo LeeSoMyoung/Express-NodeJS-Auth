@@ -36,6 +36,7 @@
   "dependencies": {
     "axios": "^0.26.0",
     "cookie-parser": "^1.4.6",
-    "google-oauth-jwt": "^0.2.0"
+    "google-oauth-jwt": "^0.2.0",
+    "node-fetch": "^3.2.0"
   }
 }

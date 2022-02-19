@@ -19,9 +19,9 @@ app.use('/src', express.static(path.resolve(__dirname, '..', 'src')));
 app.use(express.json());
 app.use(cookieParser());
 
+app.use('/', mainRouter);
 app.use('/sign-up', signUpRouter);
 app.use('/login', logInRouter);
-app.use('/', mainRouter);
 app.use('/login', googleLogInRouter);
 app.use('/login', githubLogInRouter);
 

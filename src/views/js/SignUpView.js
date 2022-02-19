@@ -23,8 +23,6 @@ export default class extends AbstactView {
         </div>
         <div class="div__btns">
             <button id="btn__signUp">회원가입</button>
-            <button id="btn__GoogleSignUp">구글로 회원가입</button>
-            <button id="btn__GithubSignUp">깃허브로 회원가입</button>
         </div>
         `;
     }
@@ -35,18 +33,11 @@ export default class extends AbstactView {
         const username = document.querySelector('#input__sign-up__username');
         const id = document.querySelector('#input__sign-up__id');
         const pw = document.querySelector('#input__sign-up__pw');
-        const pw_repeat = document.querySelector('#input__sign-up__pw-repeat');
-
-        const btn__GoogleSignUp = document.querySelector('#btn__GoogleSignUp');
-        const btn__GithubSignUp = document.querySelector('#btn__GithubSignUp');
+        const pw_repeat = document.querySelector('#input__sign-up');
 
         ///// 일반 회원가입 관련 이벤트 리스너
         signUp.addEventListener('click', (event) => {
             onSignUpSubmit(event, id.value, pw.value, pw_repeat.value, username.value);
         });
-
-        //// oAuth 관련 회원가입 버튼 이벤트 리스너
-        btn__GithubSignUp.addEventListener('click', onGithubSignUp);
-        btn__GoogleSignUp.addEventListener('click', onGoogleSignUp);
     }
 }
