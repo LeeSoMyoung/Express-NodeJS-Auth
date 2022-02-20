@@ -21,9 +21,7 @@ app.use(cookieParser());
 
 app.use('/', mainRouter);
 app.use('/sign-up', signUpRouter);
-app.use('/login', logInRouter);
-app.use('/login', googleLogInRouter);
-app.use('/login', githubLogInRouter);
+app.use('/login', logInRouter, googleLogInRouter, githubLogInRouter);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'src', 'views', 'index.html'));

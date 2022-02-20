@@ -9,7 +9,9 @@ Passport.js나 googleapis 패키지는 사용하지 않았다.
 
 ### (2) 깃허브 로그인
 
+
 ### (3) 구글 로그인
+![ezgif-2-137bf70de8](https://user-images.githubusercontent.com/47571973/154807285-c3708e04-5368-4031-a7d2-e70b5d3a9cbf.gif)
 
 
 # 기술 스택

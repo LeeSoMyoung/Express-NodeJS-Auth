@@ -4,64 +4,23 @@ require('dotenv').config();
 
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 const jwt = require('jsonwebtoken');
 
-// End point 2개
-// /login/github
-// /login/github/callback
+const githubLogInUtils = require('./utils/githubLogInUtils.js');
 
-const getAccessToken = async (code) => {
-    const data = {
-        client_id: process.env.GITHUB_CLIENT_ID,
-        client_secret: process.env.GITHUB_CLIENT_SERCRETS,
-        code
-    };
-    const headers = {
-        'Content-Type': 'application/json'
-    };
-
-    try {
-        const res = await axios.post('https://github.com/login/oauth/access_token', data, {
-            headers: headers
-        });
-        const resData = res['data'];
-        const params = new URLSearchParams(resData);
-        return params.get('access_token');
-    }
-    catch (err) {
-        throw err;
-        console.log(err);
-    }
-}
-
-const getGithubUser = async (accessToken) => {
-    try {
-        const req = await axios.get('https://api.github.com/user', {
-            headers: {
-                Authorization: `bearer ${accessToken}`
-            }
-        });
-        const data = await req['data'];
-        return data;
-    }
-    catch(err){
-        throw err;
-        return res.status(403).message({
-            message: "없는 계정이거나 올바르지 않은 계정입니다."
-        });
-    }
-}
+// End-point 2개
+// 1. /login/github -> 깃허브 로그인 페이지로 리다이렉트
+// 2. /login/github/callback -> 깃허브에서 발급한 토큰을 가지고 리다이렉트 되는 url
 
 router.get('/github', (req, res) => {
-    const githubAuthURL = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_REDIRECT_URI}`
+    const githubAuthURL = githubLogInUtils.getGithubOAuthURL();
     res.redirect(githubAuthURL);
 });
 
 router.get('/github/callback', async (req, res) => {
     const code = req.query.code;
-    const accessToken = await getAccessToken(code);
-    const githubUserData = await getGithubUser(accessToken);
+    const accessToken = await githubLogInUtils.getAccessToken(code);
+    const githubUserData = await githubLogInUtils.getGithubUser(accessToken);
 
     if(!githubUserData){
         return res.status(500).send({
