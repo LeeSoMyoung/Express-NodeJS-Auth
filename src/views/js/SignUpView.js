@@ -33,7 +33,7 @@ export default class extends AbstactView {
         const username = document.querySelector('#input__sign-up__username');
         const id = document.querySelector('#input__sign-up__id');
         const pw = document.querySelector('#input__sign-up__pw');
-        const pw_repeat = document.querySelector('#input__sign-up');
+        const pw_repeat = document.querySelector('#input__sign-up__pw-repeat');
 
         ///// 일반 회원가입 관련 이벤트 리스너
         signUp.addEventListener('click', (event) => {
