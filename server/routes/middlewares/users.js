@@ -38,6 +38,7 @@ module.exports = {
     },
 
     isLoggedIn: (req, res, next) => {
+        
         const accessToken = req.cookies[process.env.COOKIE_NAME]; // 쿠키에 토큰이 있는지 체크
 
         if(!accessToken){
