@@ -10,14 +10,14 @@ Front-end는 일부를 제외하고는 SPA를 사용하여 새로고침의 횟�
 
 ## 홈페이지 구동
 ### (1) 일반 회원가입
-![image](https://user-images.githubusercontent.com/47571973/158407542-03611e41-929f-4b5c-b5af-59da306aa117.png)
+![회원가입](https://user-images.githubusercontent.com/47571973/158409322-ace73046-6d53-43c0-9cff-3c7587a3d8e3.gif)
 
 ### (2) 일반 로그인
-![image](https://user-images.githubusercontent.com/47571973/158408000-ce13f585-c336-4c4e-8d53-9e3f6f4ef164.png)
+![일반 로그인](https://user-images.githubusercontent.com/47571973/158409494-89876237-71b7-45c4-8e38-0d0e40b9aab8.gif)
 
 
 ### (3) 깃허브 로그인
-![image](https://user-images.githubusercontent.com/47571973/158407736-2be8c23a-2746-4ebf-bd49-17c232d640de.png)
+![깃허브 로그인](https://user-images.githubusercontent.com/47571973/158409549-6e8ddbbf-13f4-423f-b1bd-00b365f2db67.gif)
 
 ### (4) 구글 로그인
 ![ezgif-2-137bf70de8](https://user-images.githubusercontent.com/47571973/154807285-c3708e04-5368-4031-a7d2-e70b5d3a9cbf.gif)
